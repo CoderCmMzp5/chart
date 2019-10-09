@@ -855,7 +855,7 @@
 
 	function initPie3_5(){
 			var myChart = echarts.init(document.getElementById('chart_pie_3_5'));
-			var color= ['#179EDD', '#7DD7FF','#2A72C9', '#3DA243','#1a9bfc','#7049f0','#53A0FD','#7A3DA2'];
+			var color= ['#7DD7FF', '#179EDD','#2A72C9', '#3DA243','#1a9bfc','#7049f0','#53A0FD','#7A3DA2'];
 			var dataStyle = {
 			    normal: {
 			        label: {
@@ -865,7 +865,7 @@
 			        labelLine: {
 			            show: false
 			        },
-			        color: "rgba(56,59,67,1)",
+			        color: "rgba(56,59,67,0.5)",
 			        borderColor: "rgba(56,59,67,0.5)",
 			        borderWidth: 1
 			    },
@@ -906,7 +906,7 @@
 			            name: 'Line 1',
 			            type: 'pie',
 			            clockWise: true,
-			            radius: [70, 74],
+			            radius: [71, 74],
 			            center:['50%','50%'],
 			            itemStyle: dataStyle,
 			            hoverAnimation: false,
@@ -928,9 +928,13 @@
 			                            }])
 			                        },
 			                        emphasis: {
-								        color: "#dedede",
-								        borderColor: "#dedede",
-								        borderWidth: 0
+								        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+			                                offset: 0,
+			                                color:color[0]
+			                            }, {
+			                                offset: 1,
+			                                color: color[1]
+			                            }])
 								    }
 			                    }
 			                }
@@ -961,7 +965,7 @@
 			                                offset: 0,
 			                                color:'#3DA243'
 			                            },{
-			                                offset: 0.3,
+			                                offset: 0.5,
 			                                color: '#10C1A0'
 			                            },{
 			                                offset: 0.7,
@@ -970,7 +974,7 @@
 			                                offset: 1,
 			                                color: '#2A72C9'
 			                            }]),
-		       							borderWidth: 4
+		       							borderWidth: 5
 			                        }
 			                    }
 			                },
@@ -992,7 +996,7 @@
 			            center:['50%','50%'],
 			            itemStyle: dataStyle,
 			            hoverAnimation: false,
-			            startAngle: 240,
+			            startAngle: 220,
 			            data: [{
 			                    value: 30,
 			                    name: '二级匹配度',
@@ -1000,24 +1004,24 @@
 			                        normal: {
 			                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
 			                                offset: 0,
-			                                color: color[4]
+			                                color: "#2A72C9"
 			                            }, {
 			                                offset: 1,
-			                                color: color[5]
+			                                color: "#53A0FD"
 			                            }]),
 			                            borderColor: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
 			                                offset: 0,
-			                                color: color[4]
+			                                color: "#2A72C9"
 			                            }, {
 			                                offset: 1,
-			                                color: color[5]
+			                                color: "#53A0FD"
 			                            }]),
-		       							borderWidth: 4
+		       							borderWidth: 5
 			                        }
 			                    }
 			                },
 			                {
-			                    value: 50,
+			                    value: 70,
 			                    name: '',
 			                    tooltip: {
 			                        show: false
@@ -1054,7 +1058,7 @@
 			                                offset: 1,
 			                                color: color[6]
 			                            }]),
-		       							borderWidth: 4
+		       							borderWidth: 5
 			                        }
 			                    }
 			                },
