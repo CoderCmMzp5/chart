@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div class="container">
+		<div class="c_top">
+			<div class="c_l_t">
+				<span>XXX</span><span>厂区实时监控系统</span><span>2019.09.28&nbsp;星期六</span>
+				<div class="c_l_t_r">
+					<div>
+						<div>20°</div>
+						<div>23/19</div>
+					</div>
+					<img src="images/12@2x.png">
+					<div>
+						<div>良好</div>
+						<div>空气质量</div>
+						<div>西南风1级 湿度63%</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="c_bottom">
+			<div class="c_l">
+				<div class="c_l_con">
+					<div class="a_t">报警统计</div>
+					<div class="a_t_e">Alarm statisics</div>
+					<div class="c_l_conImg">
+						<img src="images/1_1.png" alt="">
+						<div class="c_l_conDes">
+							<div>卡片过期</div>
+							<div>21</div>
+						</div>
+					</div>
+					<div class="c_l_conImg">
+						<img src="images/2_2.png" alt="">
+						<div class="c_l_conDes">
+							<div>主动呼救</div>
+							<div>10</div>
+						</div>
+					</div>
+					<div class="c_l_conImg">
+						<img src="images/3_3.png" alt="">
+						<div class="c_l_conDes">
+							<div>区域超员</div>
+							<div>10</div>
+						</div>
+					</div>
+					<div class="c_l_conImg">
+						<img src="images/4_4.png" alt="">
+						<div class="c_l_conDes">
+							<div>区域缺员</div>
+							<div>10</div>
+						</div>
+					</div>
+					<div class="c_l_conImg">
+						<img src="images/5_5.png" alt="">
+						<div class="c_l_conDes">
+							<div>区域闯入</div>
+							<div>21</div>
+						</div>
+					</div>
+					<div class="c_l_conImg">
+						<img src="images/6_6.png" alt="">
+						<div class="c_l_conDes">
+							<div>电量不足</div>
+							<div>33</div>
+						</div>
+					</div>
+					<div class="c_l_conImg">
+						<img src="images/7_7.png" alt="">
+						<div class="c_l_conDes">
+							<div>电子围栏</div>
+							<div>21</div>
+						</div>
+					</div>
+					<div class="c_l_conImg">
+						<img src="images/8_8.png" alt="">
+						<div class="c_l_conDes">
+							<div>人员闯入</div>
+							<div>0</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="c_r">
+				<div class="c_r_c_line">
+					<h1>厂区人数趋势</h1>
+					<h2>Trends in plant population</h2>
+					<div class="lengdD">
+						<div><span></span><span>昨日人数</span></div>
+						<div><span class="cb"></span><span>今日人数</span></div>
+					</div>
+					<div class="chart_line" id="main_1"></div>
+				</div>
+				<div class="c_r_c_line">
+					<h1>人员组成</h1>
+					<h2>Members</h2>
+					
+					<div class="chart_line" id="main_2">
+						<div>
+							<div id="chart_pie_3_5"></div>
+						</div>
+						<div>
+							<div>
+								<img src="images/@2x.png">
+								<span class="zrs pre">总人数</span>
+								<span class="pre">100%</span>
+								<span  class="pre pre_2"></span>
+								<span  class="pre">1600</span>
+							</div>
+							<div>
+								<img src="images/2@2x.png">
+								<span class="zrs pre">厂内员工</span>
+								<span class="pre">60%</span>
+								<span  class="pre pre_2"></span>
+								<span  class="pre">860</span>
+							</div>
+							<div>
+								<img src="images/3@2x.png">
+								<span class="zrs pre">临时施工</span>
+								<span class="pre">30%</span>
+								<span  class="pre pre_2"></span>
+								<span  class="pre">480</span>
+							</div>
+							<div>
+								<img src="images/4@2x.png">
+								<span class="zrs pre">访问</span>
+								<span class="pre">10%</span>
+								<span  class="pre pre_2"></span>
+								<span  class="pre">160</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="c_r_c_line">
+					<h1>各区域人数</h1>
+					<h2>Members of people in each regio</h2>
+					
+					<div class="chart_line chart_pie_3" id="main_3">
+						<div id="chart_pie_3_1"></div>
+						<div id="chart_pie_3_2"></div>
+						<div id="chart_pie_3_3"></div>
+						<div id="chart_pie_3_4"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+	function initLineChart(){
+		 var myChart = echarts.init(document.getElementById('main_1'));
+			var option = {
+			    tooltip: {
+			        trigger: 'axis',
+			        axisPointer: {
+			            lineStyle: {
+			                color: {
+			                    type: 'linear',
+			                    x: 0,
+			                    y: 0,
+			                    x2: 0,
+			                    y2: 1,
+			                    colorStops: [{
+			                        offset: 0,
+			                        color: 'rgba(255,255,255,0)' // 0% 处的颜色
+			                    }, {
+			                        offset: 0.5,
+			                        color: 'rgba(255,255,255,1)' // 100% 处的颜色
+			                    }, {
+			                        offset: 1,
+			                        color: 'rgba(255,255,255,0)' // 100% 处的颜色
+			                    }],
+			                    global: false // 缺省为 false
+			                }
+			            },
+			        },
+
+			    },
+			    grid: {
+			        top: '10%',
+			        left: '-10%',
+			        right: '0%',
+			        bottom: '0%',
+			        // containLabel: true
+			    },
+			    xAxis: [{
+			        type: 'category',
+			        boundaryGap: true,
+			        axisLine: { //坐标轴轴线相关设置。数学上的x轴
+			            show: false,
+			            lineStyle: {
+			                color: 'rgba(255,255,255,0.4)'
+			            },
+			        },
+			        axisLabel: { //坐标轴刻度标签的相关设置
+			            textStyle: {
+			                color: '#d1e6eb',
+			                margin: 15,
+			            },
+			        },
+			        axisTick: {
+			            show: false,
+			        },
+			        data: ['', '', '', '', '', '', '', '' ,'' ,'' ,'',''],
+			    }],
+			    yAxis: [{
+			        type: 'value',
+			        min: 0,
+			        // max: 140,
+			        splitNumber: 4,
+			        splitLine: {
+			            show: false,
+			            lineStyle: {
+			                color: 'rgba(255,255,255,0.1)'
+			            }
+			        },
+			        axisLine: {
+			            show: false,
+			        },
+			        axisLabel: {
+			            show: false,
+			            margin: 20,
+			            textStyle: {
+			                color: '#d1e6eb',
+
+			            },
+			        },
+			        axisTick: {
+			            show: false,
+			        },
+			    }],
+			    series: [{
+			        name: '注册总量',
+			        type: 'line',
+			        		symbol:'circle',  // 默认是空心圆（中间是白色的），改成实心圆
+			        showAllSymbol: false,
+			        // symbol: 'image://./static/images/guang-circle.png',
+			        symbolSize: 8,
+			        symbol: 'none',
+			        smooth: true,
+			        lineStyle: {
+			            normal: {
+				                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+				                        offset: 0,
+				                        color: '#2A72C9'
+				                    },
+				                    {
+				                        offset: 1,
+				                        color: '#3DA243'
+				                    }
+				                ], false)
+				            },//线条颜色
+				            borderColor: '#f0f' 
+			        },
+			        label: {
+			            show: true,
+			            position: 'top',
+			            textStyle: {
+			                color: '#fff',
+			            }
+			        },
+			        itemStyle: {
+			            normal: {
+			                color: "rgba(255,255,255,1)",
+			            }
+			        },
+			        areaStyle: { //区域填充样式
+			            normal: {
+			                //线性渐变，前4个参数分别是x0,y0,x2,y2(范围0~1);相当于图形包围盒中的百分比。如果最后一个参数是‘true’，则该四个值是绝对像素位置。
+			                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+			                        offset: 0,
+			                        color: 'rgba(0,150,239,0.2)'
+			                    },
+			                    {
+			                        offset: 1,
+			                        color: 'rgba(0,253,252,0)'
+			                    }
+			                ], false),
+			                shadowColor: 'rgba(53,142,215, 0.8)', //阴影颜色
+			                shadowBlur: 20 //shadowBlur设图形阴影的模糊大小。配合shadowColor,shadowOffsetX/Y, 设置图形的阴影效果。
+			            }
+			        },
+			        data: [45, 65,  75, 118, 118 , 85,  78, 133, 153, 133,78,70 ]
+
+			    },{
+			        name: '注册总量',
+			        type: 'line',
+			        // smooth: true, //是否平滑曲线显示
+			        // 			symbol:'circle',  // 默认是空心圆（中间是白色的），改成实心圆
+			        showAllSymbol: true,
+			        // symbol: 'image://./static/images/guang-circle.png',
+			        symbolSize: 8,
+			        symbol: 'none',
+			        smooth: true,
+			        lineStyle: {
+			            normal: {
+			                color: "#E7E7E7", // 线条颜色
+			            },
+			            borderColor: '#f0f'
+			        },
+			        label: {
+			            show: true,
+			            position: 'top',
+			            textStyle: {
+			                color: '#fff',
+			            }
+			        },
+			        itemStyle: {
+			            normal: {
+			                color: "rgba(255,255,255,1)",
+			            }
+			        },
+			        areaStyle: { //区域填充样式
+			            normal: {
+			                //线性渐变，前4个参数分别是x0,y0,x2,y2(范围0~1);相当于图形包围盒中的百分比。如果最后一个参数是‘true’，则该四个值是绝对像素位置。
+			                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+			                        offset: 0,
+			                        color: 'rgba(0,150,239,0.2)'
+			                    },
+			                    {
+			                        offset: 1,
+			                        color: 'rgba(0,253,252,0)'
+			                    }
+			                ], false),
+			                shadowColor: 'rgba(53,142,215, 0.8)', //阴影颜色
+			                shadowBlur: 20 //shadowBlur设图形阴影的模糊大小。配合shadowColor,shadowOffsetX/Y, 设置图形的阴影效果。
+			            }
+			        },
+			        data: [45, 65,  75, 118, 118 , 85,  78, 133, 153, 133,78,70 ]
+			    }]
+			};
+			// 使用刚指定的配置项和数据显示图表。
+	     	myChart.setOption(option);
+	     	window.addEventListener("resize",function(){
+			    myChart.resize();
+			});
+		}
+		
+
+		function initPie3_1(){
+			var myChart = echarts.init(document.getElementById('chart_pie_3_1'));
+			var placeHolderStyle = {
+		    normal: {
+		        label: {
+		            show: false,
+		            position: "center"
+		        },
+		        labelLine: {
+		            show: false
+		        },
+		        color: "rgba(56,59,67,0.1)",
+		        borderColor: "rgba(56,59,67,0.5)",
+		        borderWidth: 1
+		    },
+		    emphasis: {
+		        color: "#dedede",
+		        borderColor: "#dedede",
+		        borderWidth: 0
+		    }
+		};
+		option = {
+		    color: ['#E87C1E'],
+		    legend: [{
+		        orient: '',
+		        icon: 'circle',
+		        left: 'right',
+		        top: 'center',
+		        data: ['不喜欢'],
+		        show:false
+		    }],
+		    series: [{
+		        name: '值',
+		        type: 'pie',
+		        clockWise: true,
+		        hoverAnimation: false,
+		        radius: [49, 50],
+		        startAngle:0,
+		        itemStyle: {
+		            normal: {
+		                label: {
+		                    show: false
+		                },
+		                labelLine: {
+		                    show: false,
+		                    length: 100,
+		                    smooth: 0.5
+		                },
+		                borderWidth: 5,
+		                shadowBlur: 40,
+		                borderColor: "#ffcd26",
+		                shadowColor: 'rgba(0, 0, 0, 0)' //边框阴影
+		            }
+		        },
+		        data: [{
+		            value: 10,
+		            name: '40%',
+		            itemStyle: {
+		                normal: {
+		                    label: {
+		                        show: false,
+		                        position: "center"
+		                    },
+		                    labelLine: {
+		                        show: false
+		                    },
+		                    color: "#E87C1E",
+		                    borderColor: "#E87C1E"
+		                }
+		            }
+		        }, {
+		            value: 6,
+		            name: '',
+		            itemStyle: placeHolderStyle
+		        }]
+		    }, {
+		        type: 'pie',
+		        color: ['#E87C1E'],
+		        data: [{
+		            value: '',
+		            name: '不喜欢'
+		        }]
+		    }, {
+		        name: '白',
+		        type: 'pie',
+		        clockWise: true,
+		        hoverAnimation: false,
+		        radius: [100, 100],
+		        label: {
+		            normal: {
+		                position: 'center'
+		            }
+		        },
+		        data: [{
+		            value: 1,
+		            label: {
+		                normal: {
+		                    formatter: '45312',
+		                    textStyle: {
+		                        color: '#fff',
+		                        fontSize: 20
+		                    }
+		                }
+		            }
+		        }, {
+		            tooltip: {
+		                show: false
+		            },
+		            label: {
+		                normal: {
+		                    formatter: '\n',
+		                    textStyle: {
+		                        color: '#666666',
+		                        fontSize: 12
+		                    }
+		                }
+		            }
+		        }]
+		    }]
+		};
+		myChart.setOption(option);
+		window.addEventListener("resize",function(){
+		    myChart.resize();
+		});
+	}
+	initPie3_1();
+
+
+	function initPie3_2(){
+			var myChart = echarts.init(document.getElementById('chart_pie_3_2'));
+			var placeHolderStyle = {
+		    normal: {
+		        label: {
+		            show: false,
+		            position: "center"
+		        },
+		        labelLine: {
+		            show: false
+		        },
+		        color: "rgba(56,59,67,1)",
+		        borderColor: "rgba(56,59,67,0.5)",
+		        borderWidth: 1
+		    },
+		    emphasis: {
+		        color: "#dedede",
+		        borderColor: "#dedede",
+		        borderWidth: 0
+		    }
+		};
+		option = {
+		    color: ['#E87C1E'],
+		    legend: [{
+		        orient: '',
+		        icon: 'circle',
+		        left: 'right',
+		        top: 'center',
+		        data: ['不喜欢'],
+		        show:false
+		    }],
+		    series: [{
+		        name: '值',
+		        type: 'pie',
+		        clockWise: true,
+		        hoverAnimation: false,
+		        radius: [49, 50],
+		        startAngle:45,
+		        itemStyle: {
+		            normal: {
+		                label: {
+		                    show: false
+		                },
+		                labelLine: {
+		                    show: false,
+		                    length: 100,
+		                    smooth: 0.5
+		                },
+		                borderWidth: 5,
+		                shadowBlur: 40,
+		                borderColor: "#ffcd26",
+		                shadowColor: 'rgba(0, 0, 0, 0)' //边框阴影
+		            }
+		        },
+		        data: [{
+		            value: 3,
+		            name: '40%',
+		            itemStyle: {
+		                normal: {
+		                    label: {
+		                        show: false,
+		                        position: "center"
+		                    },
+		                    labelLine: {
+		                        show: false
+		                    },
+		                    color: "#179EDD",
+		                    borderColor: "#179EDD"
+		                }
+		            }
+		        }, {
+		            value: 6,
+		            name: '',
+		            itemStyle: placeHolderStyle
+		        }]
+		    }, {
+		        type: 'pie',
+		        color: ['#E87C1E'],
+		        data: [{
+		            value: '',
+		            name: '不喜欢'
+		        }]
+		    }, {
+		        name: '白',
+		        type: 'pie',
+		        clockWise: true,
+		        hoverAnimation: false,
+		        radius: [100, 100],
+		        label: {
+		            normal: {
+		                position: 'center'
+		            }
+		        },
+		        data: [{
+		            value: 1,
+		            label: {
+		                normal: {
+		                    formatter: '9833',
+		                    textStyle: {
+		                        color: '#fff',
+		                        fontSize: 20
+		                    }
+		                }
+		            }
+		        }, {
+		            tooltip: {
+		                show: false
+		            },
+		            label: {
+		                normal: {
+		                    formatter: '\n',
+		                    textStyle: {
+		                        color: '#666666',
+		                        fontSize: 12
+		                    }
+		                }
+		            }
+		        }]
+		    }]
+		};
+		myChart.setOption(option);
+		window.addEventListener("resize",function(){
+		    myChart.resize();
+		});
+	}
+	initPie3_2();
+
+
+	function initPie3_3(){
+			var myChart = echarts.init(document.getElementById('chart_pie_3_3'));
+			var placeHolderStyle = {
+		    normal: {
+		        label: {
+		            show: false,
+		            position: "center"
+		        },
+		        labelLine: {
+		            show: false
+		        },
+		        color: "rgba(56,59,67,1)",
+		        borderColor: "rgba(56,59,67,0.5)",
+		        borderWidth: 1
+		    },
+		    emphasis: {
+		        color: "#dedede",
+		        borderColor: "#dedede",
+		        borderWidth: 0
+		    }
+		};
+		option = {
+		    color: ['#E87C1E'],
+		    legend: [{
+		        orient: '',
+		        icon: 'circle',
+		        left: 'right',
+		        top: 'center',
+		        data: ['不喜欢'],
+		        show:false
+		    }],
+		    series: [{
+		        name: '值',
+		        type: 'pie',
+		        clockWise: true,
+		        hoverAnimation: false,
+		        radius: [49, 50],
+		        startAngle:165,
+		        itemStyle: {
+		            normal: {
+		                label: {
+		                    show: false
+		                },
+		                labelLine: {
+		                    show: false,
+		                    length: 100,
+		                    smooth: 0.5
+		                },
+		                borderWidth: 5,
+		                shadowBlur: 40,
+		                borderColor: "#ffcd26",
+		                shadowColor: 'rgba(0, 0, 0, 0)' //边框阴影
+		            }
+		        },
+		        data: [{
+		            value: 1,
+		            name: '40%',
+		            itemStyle: {
+		                normal: {
+		                    label: {
+		                        show: false,
+		                        position: "center"
+		                    },
+		                    labelLine: {
+		                        show: false
+		                    },
+		                    color: "#179EDD",
+		                    borderColor: "#179EDD"
+		                }
+		            }
+		        }, {
+		            value: 6,
+		            name: '',
+		            itemStyle: placeHolderStyle
+		        }]
+		    }, {
+		        type: 'pie',
+		        color: ['#E87C1E'],
+		        data: [{
+		            value: '',
+		            name: '不喜欢'
+		        }]
+		    }, {
+		        name: '白',
+		        type: 'pie',
+		        clockWise: true,
+		        hoverAnimation: false,
+		        radius: [100, 100],
+		        label: {
+		            normal: {
+		                position: 'center'
+		            }
+		        },
+		        data: [{
+		            value: 1,
+		            label: {
+		                normal: {
+		                    formatter: '8735',
+		                    textStyle: {
+		                        color: '#fff',
+		                        fontSize: 20
+		                    }
+		                }
+		            }
+		        }, {
+		            tooltip: {
+		                show: false
+		            },
+		            label: {
+		                normal: {
+		                    formatter: '\n',
+		                    textStyle: {
+		                        color: '#666666',
+		                        fontSize: 12
+		                    }
+		                }
+		            }
+		        }]
+		    }]
+		};
+		myChart.setOption(option);
+	}
+	initPie3_3();
+
+	function initPie3_4(){
+			var myChart = echarts.init(document.getElementById('chart_pie_3_4'));
+			var placeHolderStyle = {
+		    normal: {
+		        label: {
+		            show: false,
+		            position: "center"
+		        },
+		        labelLine: {
+		            show: false
+		        },
+		        color: "rgba(56,59,67,1)",
+		        borderColor: "rgba(56,59,67,0.5)",
+		        borderWidth: 1
+		    },
+		    emphasis: {
+		        color: "#dedede",
+		        borderColor: "#dedede",
+		        borderWidth: 0
+		    }
+		};
+		option = {
+		    color: ['#E87C1E'],
+		    legend: [{
+		        orient: '',
+		        icon: 'circle',
+		        left: 'right',
+		        top: 'center',
+		        data: ['不喜欢'],
+		        show:false
+		    }],
+		    series: [{
+		        name: '值',
+		        type: 'pie',
+		        clockWise: true,
+		        hoverAnimation: false,
+		        radius: [49, 50],
+		        startAngle:95,
+		        itemStyle: {
+		            normal: {
+		                label: {
+		                    show: false
+		                },
+		                labelLine: {
+		                    show: false,
+		                    length: 100,
+		                    smooth: 0.5
+		                },
+		                borderWidth: 5,
+		                shadowBlur: 40,
+		                borderColor: "#ffcd26",
+		                shadowColor: 'rgba(0, 0, 0, 0)' //边框阴影
+		            }
+		        },
+		        data: [{
+		            value: 14,
+		            name: '40%',
+		            itemStyle: {
+		                normal: {
+		                    label: {
+		                        show: false,
+		                        position: "center"
+		                    },
+		                    labelLine: {
+		                        show: false
+		                    },
+		                    color: "#179EDD",
+		                    borderColor: "#179EDD"
+		                }
+		            }
+		        }, {
+		            value: 6,
+		            name: '',
+		            itemStyle: placeHolderStyle
+		        }]
+		    }, {
+		        type: 'pie',
+		        color: ['#E87C1E'],
+		        data: [{
+		            value: '',
+		            name: '不喜欢'
+		        }]
+		    }, {
+		        name: '白',
+		        type: 'pie',
+		        clockWise: true,
+		        hoverAnimation: false,
+		        radius: [100, 100],
+		        label: {
+		            normal: {
+		                position: 'center'
+		            }
+		        },
+		        data: [{
+		            value: 1,
+		            label: {
+		                normal: {
+		                    formatter: '8735',
+		                    textStyle: {
+		                        color: '#fff',
+		                        fontSize: 20
+		                    }
+		                }
+		            }
+		        }, {
+		            tooltip: {
+		                show: false
+		            },
+		            label: {
+		                normal: {
+		                    formatter: '\n',
+		                    textStyle: {
+		                        color: '#666666',
+		                        fontSize: 12
+		                    }
+		                }
+		            }
+		        }]
+		    }]
+		};
+		myChart.setOption(option);
+		window.addEventListener("resize",function(){
+		    myChart.resize();
+		});
+	}
+	initPie3_4();
+
+	function initPie3_5(){
+			var myChart = echarts.init(document.getElementById('chart_pie_3_5'));
+			var color= ['#179EDD', '#7DD7FF','#2A72C9', '#3DA243','#1a9bfc','#7049f0','#53A0FD','#7A3DA2'];
+			var dataStyle = {
+			    normal: {
+			        label: {
+			            show: false,
+			            position: "center"
+			        },
+			        labelLine: {
+			            show: false
+			        },
+			        color: "rgba(56,59,67,1)",
+			        borderColor: "rgba(56,59,67,0.5)",
+			        borderWidth: 1
+			    },
+			    emphasis: {
+			        color: "#dedede",
+			        borderColor: "#dedede",
+			        borderWidth: 0
+			    }
+			};
+			var placeHolderStyle = {
+			    normal: {
+			        label: {
+			            show: false,
+			            position: "center"
+			        },
+			        labelLine: {
+			            show: false
+			        },
+			        color: "rgba(74,78,85,0.9)",
+			        borderColor: "rgba(74,78,85,0.9)",
+			        borderWidth: 1
+			    },
+			    emphasis: {
+			        color: "#dedede",
+			        borderColor: "#dedede",
+			        borderWidth: 0
+			    }
+			};
+			option = {
+			    grid: {
+			        top: '0%',
+			        left: '0%',
+			        right: '0%',
+			        bottom: '0%',
+			        // containLabel: true
+			    },
+			    series: [{
+			            name: 'Line 1',
+			            type: 'pie',
+			            clockWise: true,
+			            radius: [70, 74],
+			            center:['50%','50%'],
+			            itemStyle: dataStyle,
+			            hoverAnimation: false,
+			            startAngle:45,
+			            label:{
+			                borderRadius:'10',
+			            },
+			            data: [{
+			                    value: 54.6,
+			                    name: '四级匹配度',
+			                    itemStyle: {
+			                        normal: {
+			                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+			                                offset: 0,
+			                                color:color[0]
+			                            }, {
+			                                offset: 1,
+			                                color: color[1]
+			                            }])
+			                        },
+			                        emphasis: {
+								        color: "#dedede",
+								        borderColor: "#dedede",
+								        borderWidth: 0
+								    }
+			                    }
+			                }
+			            ]
+			        },
+			        {
+			            name: 'Line 2',
+			            type: 'pie',
+			            clockWise: true,
+			            radius: [58, 59],
+			            center:['50%','50%'],
+			            itemStyle: dataStyle,
+			            hoverAnimation: false,
+			            startAngle: 0,
+			            data: [{
+			                    value: 56.7,
+			                    name: '三级匹配度',
+			                    itemStyle: {
+			                        normal: {
+			                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+			                                offset: 0,
+			                                color: color[2]
+			                            }, {
+			                                offset: 1,
+			                                color: color[3]
+			                            }]),
+			                            borderColor: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+			                                offset: 0,
+			                                color:'#3DA243'
+			                            },{
+			                                offset: 0.3,
+			                                color: '#10C1A0'
+			                            },{
+			                                offset: 0.7,
+			                                color: '#53A0FD'
+			                            },{
+			                                offset: 1,
+			                                color: '#2A72C9'
+			                            }]),
+		       							borderWidth: 4
+			                        }
+			                    }
+			                },
+			                {
+			                    value: 23.3,
+			                    name: '',
+			                    tooltip: {
+			                        show: false
+			                    },
+			                    itemStyle: placeHolderStyle
+			                },
+			            ]
+			        },
+			        {
+			            name: 'Line 3',
+			            type: 'pie',
+			            clockWise: true,
+			            radius: [45, 46],
+			            center:['50%','50%'],
+			            itemStyle: dataStyle,
+			            hoverAnimation: false,
+			            startAngle: 240,
+			            data: [{
+			                    value: 30,
+			                    name: '二级匹配度',
+			                    itemStyle: {
+			                        normal: {
+			                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+			                                offset: 0,
+			                                color: color[4]
+			                            }, {
+			                                offset: 1,
+			                                color: color[5]
+			                            }]),
+			                            borderColor: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+			                                offset: 0,
+			                                color: color[4]
+			                            }, {
+			                                offset: 1,
+			                                color: color[5]
+			                            }]),
+		       							borderWidth: 4
+			                        }
+			                    }
+			                },
+			                {
+			                    value: 50,
+			                    name: '',
+			                    tooltip: {
+			                        show: false
+			                    },
+			                    itemStyle: placeHolderStyle
+			                },
+			            ]
+			        },
+			        {
+			            name: 'Line 4',
+			            type: 'pie',
+			            clockWise: true,
+			            radius: [32, 33],
+			            center:['50%','50%'],
+			            itemStyle: dataStyle,
+			            hoverAnimation: false,
+			            startAngle: 140,
+			            data: [{
+			                    value: 6,
+			                    name: '四级匹配度',
+			                    itemStyle: {
+			                        normal: {
+			                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+			                                offset: 0,
+			                                color: color[5]
+			                            }, {
+			                                offset: 1,
+			                                color: color[6]
+			                            }]),
+			                            borderColor: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+			                                offset: 0,
+			                                color: color[5]
+			                            }, {
+			                                offset: 1,
+			                                color: color[6]
+			                            }]),
+		       							borderWidth: 4
+			                        }
+			                    }
+			                },
+			                {
+			                    value: 50,
+			                    name: '',
+			                    tooltip: {
+			                        show: false
+			                    },
+			                    itemStyle: placeHolderStyle
+			                },
+			            ]
+			        }
+			    ]
+			};
+		myChart.setOption(option);
+		window.addEventListener("resize",function(){
+		    myChart.resize();
+		});
+	}
+	initPie3_5()
+</script>
+</html>

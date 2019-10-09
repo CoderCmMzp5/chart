@@ -1,0 +1,298 @@
+html,body{width: 100%;height: 100%;}
+.container{
+	width:100%;
+	height: 100%;
+	background:url(../images/6@2x.png) no-repeat center center;
+	background-size: cover;
+}
+.c_top{
+	width: 100%;
+	height: 110px;
+	background: -webkit-linear-gradient(rgba(7,41,81,1), rgba(2,9,17,1)); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(rgba(7,41,81,1), rgba(2,9,17,1)); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(rgba(7,41,81,1), rgba(2,9,17,1)); /* Firefox 3.6 - 15 */
+  background: linear-gradient(rgba(7,41,81,1), rgba(2,9,17,1)); /* 标准的语法 */
+  position: absolute;
+  top:0;
+}
+.c_l{
+	width: 49%;
+	height: 100%;
+	float: left;
+}
+.c_l_t{
+	padding-left: 50px;
+}
+.c_l_t span:nth-of-type(1){
+	font-size:36px;
+	font-family:PingFangSC-Medium,PingFangSC;
+	font-weight:500;
+	color:rgba(255,255,255,1);
+	padding-top: 31px;
+	display: inline-block;
+}
+.c_l_t span:nth-of-type(2){
+	font-size:26px;
+	font-family:PingFangSC-Medium,PingFangSC;
+	font-weight:500;
+	margin-left: 15px;
+	color:rgba(255,255,255,1);
+	padding-top: 31px;
+	display: inline-block;
+}
+.c_l_t span:nth-of-type(3){
+	font-size:20px;
+	margin-left: 42px;
+	font-family:PingFangSC-Regular,PingFangSC;
+	font-weight:400;
+	color:rgba(205,206,209,1);
+	padding-top: 31px;
+	display: inline-block;
+}
+.c_l_con{
+	height: 100%;
+}
+.a_t{
+	font-size:24px;
+	font-family:PingFangSC-Regular,PingFangSC;
+	font-weight:400;
+	color:rgba(255,255,255,1);
+}
+.a_t_e{
+	font-size:20px;
+	font-family:PingFangSC-Regular,PingFangSC;
+	font-weight:400;
+	color:rgba(205,206,209,1);
+	margin-bottom: 24px;
+}
+.c_l_conImg{
+	height:10%;
+	min-height: 55px;
+
+}
+.c_l_conImg img{
+	    float: left;
+    width: 44px;
+    height: 44px;
+    position: relative;
+    top: 7px;
+}
+.c_l_conDes{
+	height: 130px;
+	margin-left: 140px;
+	height: 55px;
+	    margin-left: 55px;
+
+}
+.c_l_conDes div:nth-of-type(1){
+	font-size:18px;
+	font-family:PingFangSC-Regular,PingFangSC;
+	font-weight:400;
+	color:rgba(159,162,170,1);
+}
+.c_l_conDes div:nth-of-type(2){
+	font-size:20px;
+	font-family:Futura-Medium,Futura;
+	font-weight:500;
+	color:#fff;
+}
+.c_bottom{
+	width: 100%;
+	height: calc(100% - 110px);
+	height:-webkit-calc(100% - 110px);
+	height:-moz-calc(100% - 110px);
+	position: relative;
+    top: 110px;
+}
+.c_l{
+	width: 300px;
+	background:linear-gradient(90deg,rgba(11,16,31,1) 0%,rgba(11,18,33,0.55) 100%);
+	height: 100%;
+	float: left;
+	padding-left: 49px;
+}
+.c_r{
+	width: 700px;
+	height: 100%;
+	background:linear-gradient(270deg,rgba(11,16,31,1) 0%,rgba(11,18,33,0.55) 100%);
+	float: right;
+}
+.c_l_t_r{
+	width: 700px;
+	height: 100%;
+	float: right;
+    padding-top: 29px;
+    margin-right: 15px;    
+        padding-left: 15px;
+}
+.c_l_t_r>div:nth-of-type(1){
+	display: inline-block;
+	color: rgba(205,206,209,1);
+}
+.c_l_t_r>div:nth-of-type(1) div:nth-of-type(1){
+	    font-size: 36px;
+}
+.c_l_t_r>div:nth-of-type(1) div:nth-of-type(2){
+	font-size: 22px;
+}
+.c_l_t_r>img{
+	    width: 34px;
+    height: 34px;
+    margin-left: 5px;
+    position: relative;
+    top: 8px;
+}
+.c_l_t_r>div:nth-of-type(2){
+	    width: 140px;
+    height: 100%;
+    float: right;
+    font-size: 16px;
+    margin-right: 20px;
+    padding-top: 12px;
+} 
+.c_l_t_r>div:nth-of-type(2) div:nth-of-type(2){
+	display: inline-block;margin-right: 10px;
+	color: rgba(205,206,209,1);
+	float: right;
+}
+.c_l_t_r>div:nth-of-type(2) div:nth-of-type(1){
+	display: inline-block;
+    background: rgba(24,178,157,1);
+    color: #fff;
+    width: 42px;
+    line-height: 24px;
+    height: 24px;
+    border-radius: 4px;
+    text-align: center;
+    float: right;
+}
+.c_l_t_r>div:nth-of-type(2) div:nth-of-type(3){
+	    display: block;
+    background: rgba(120,124,128,1);
+    color: #fff;
+    padding: 3px;
+    line-height: 28px;
+    height: 30px;
+    width: 160px;
+    margin-top: 10px;
+    border-radius: 4px;
+    text-align: center;
+    float: right;
+}
+.c_r_c_line{
+	height: 33.3%;
+	width: 100%;
+	position: relative;
+}
+.c_r_c_line:first-child{
+	padding-top: 31px;
+}
+.c_r h1{
+	font-size: 24px;
+	color: rgba(249,249,250,1);
+	padding-left: 25px;
+}
+.c_r h2{
+	font-size: 20px;
+    color: rgba(205,206,209,1);
+    font-weight: normal;
+    padding-left: 25px;
+}
+.chart_line{
+	width: 100%;
+	height: calc(100% - 80px);
+	height:-webkit-calc(100% - 80px);
+	height:-moz-calc(100% - 80px);
+}
+.lengdD{
+	width: 100%;
+	height: 80px;
+	position: absolute;
+	top:110px;
+}
+.lengdD>div{
+	height: 30px;
+	padding-left: 34px;
+}
+.lengdD>div span:nth-of-type(1){
+	display: inline-block;
+    width: 20px;
+    height: 2px;
+    background: #E7E7E7;
+    margin-right: 7px;
+    vertical-align: middle;
+    border-radius: 5px;
+}
+.lengdD>div span:nth-of-type(2){
+	display: inline-block;
+	color:rgba(205,206,209,1);
+	vertical-align: middle;
+}
+.cb{
+	 background: -webkit-linear-gradient(left, #2A72C9 , #3DA243)!important; /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #2A72C9, #3DA243)!important; /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #2A72C9, #3DA243)!important; /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #2A72C9 , #3DA243)!important; /* 标准的语法 */
+}
+.chart_pie_3{
+	background: none;
+}
+.chart_pie_3 div{
+	width: 25%;
+	height: 100%;
+	float: left;
+}
+#main_1{
+	    background: url(../images/backg.png) no-repeat center center;
+    background-size: 100% 100%;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    top: 23px;
+}
+#main_2>div:nth-of-type(1){
+	width: 40%;
+	float: left;
+	height: 100%;
+}
+#main_2 >div:nth-of-type(2){
+	width: 59%;
+	float: left;
+	height: 100%;
+	    position: relative;
+    left: -10px;
+	vertical-align: middle;
+}
+#main_2 div:nth-of-type(2) img,span{
+	vertical-align: middle;
+}
+.pre{
+	font-size:16px;
+	color: rgba(255,255,255,1);
+	margin-left: 4px;
+}
+.pre_2{
+	font-size:16px;
+	color: rgba(255,255,255,0.85);
+	margin-left: 4px;
+	width: 1px;
+	background: rgba(255,255,255,0.65);
+	height: 14px;
+	display: inline-block;
+}
+#main_2 div:nth-of-type(2) img{
+	width: 14px;
+}
+.zrs{
+	display: inline-block;
+	width: 100px;
+	    color: rgba(255,255,255,0.65);
+}
+#main_2 >div:nth-of-type(2) div{
+	height: 25%;
+	    padding-top: 12px;
+}
+#chart_pie_3_5{
+	width: 110%;
+	height: 105%;
+}
