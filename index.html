@@ -25,6 +25,7 @@
 			</div>
 		</div>
 		<div class="c_bottom">
+			<div class="c_img"></div>
 			<div class="c_l">
 				<div class="c_l_con">
 					<div class="a_t">报警统计</div>
@@ -95,7 +96,9 @@
 						<div><span></span><span>昨日人数</span></div>
 						<div><span class="cb"></span><span>今日人数</span></div>
 					</div>
-					<div class="chart_line" id="main_1"></div>
+					<div class="chart_line" id="main_1">
+						<img src="images/backg.png">
+					</div>
 				</div>
 				<div class="c_r_c_line">
 					<h1>人员组成</h1>
@@ -394,7 +397,7 @@
 		                    length: 100,
 		                    smooth: 0.5
 		                },
-		                borderWidth: 5,
+		                borderWidth: 8,
 		                shadowBlur: 40,
 		                borderColor: "#ffcd26",
 		                shadowColor: 'rgba(0, 0, 0, 0)' //边框阴影
@@ -522,7 +525,7 @@
 		                    length: 100,
 		                    smooth: 0.5
 		                },
-		                borderWidth: 5,
+		                borderWidth: 8,
 		                shadowBlur: 40,
 		                borderColor: "#ffcd26",
 		                shadowColor: 'rgba(0, 0, 0, 0)' //边框阴影
@@ -650,7 +653,7 @@
 		                    length: 100,
 		                    smooth: 0.5
 		                },
-		                borderWidth: 5,
+		                borderWidth: 8,
 		                shadowBlur: 40,
 		                borderColor: "#ffcd26",
 		                shadowColor: 'rgba(0, 0, 0, 0)' //边框阴影
@@ -774,7 +777,7 @@
 		                    length: 100,
 		                    smooth: 0.5
 		                },
-		                borderWidth: 5,
+		                borderWidth: 8,
 		                shadowBlur: 40,
 		                borderColor: "#ffcd26",
 		                shadowColor: 'rgba(0, 0, 0, 0)' //边框阴影
@@ -906,7 +909,7 @@
 			            name: 'Line 1',
 			            type: 'pie',
 			            clockWise: true,
-			            radius: [71, 74],
+			            radius: [72, 75],
 			            center:['50%','50%'],
 			            itemStyle: dataStyle,
 			            hoverAnimation: false,
@@ -944,13 +947,22 @@
 			            name: 'Line 2',
 			            type: 'pie',
 			            clockWise: true,
-			            radius: [58, 59],
+			            radius: [57, 58],
 			            center:['50%','50%'],
 			            itemStyle: dataStyle,
 			            hoverAnimation: false,
-			            startAngle: 0,
-			            data: [{
-			                    value: 56.7,
+			            startAngle: 90,
+			            data: [
+			                {
+			                    value: 23.3,
+			                    name: '',
+			                    tooltip: {
+			                        show: false
+			                    },
+			                    itemStyle: placeHolderStyle
+			                },
+			                {
+			                    value: 46.7,
 			                    name: '三级匹配度',
 			                    itemStyle: {
 			                        normal: {
@@ -977,27 +989,26 @@
 		       							borderWidth: 5
 			                        }
 			                    }
-			                },
-			                {
-			                    value: 23.3,
-			                    name: '',
-			                    tooltip: {
-			                        show: false
-			                    },
-			                    itemStyle: placeHolderStyle
-			                },
+			                }
 			            ]
 			        },
 			        {
 			            name: 'Line 3',
 			            type: 'pie',
 			            clockWise: true,
-			            radius: [45, 46],
+			            radius: [40, 41],
 			            center:['50%','50%'],
 			            itemStyle: dataStyle,
 			            hoverAnimation: false,
-			            startAngle: 220,
+			            startAngle: 90,
 			            data: [{
+			                    value: 70,
+			                    name: '',
+			                    tooltip: {
+			                        show: false
+			                    },
+			                    itemStyle: placeHolderStyle
+			                },{
 			                    value: 30,
 			                    name: '二级匹配度',
 			                    itemStyle: {
@@ -1019,27 +1030,29 @@
 		       							borderWidth: 5
 			                        }
 			                    }
-			                },
-			                {
-			                    value: 70,
-			                    name: '',
-			                    tooltip: {
-			                        show: false
-			                    },
-			                    itemStyle: placeHolderStyle
-			                },
+			                }
+			                
 			            ]
 			        },
 			        {
 			            name: 'Line 4',
 			            type: 'pie',
 			            clockWise: true,
-			            radius: [32, 33],
+			            radius: [25, 26],
 			            center:['50%','50%'],
 			            itemStyle: dataStyle,
 			            hoverAnimation: false,
-			            startAngle: 140,
-			            data: [{
+			            startAngle: 90,
+			            data: [
+		            	{
+		                    value: 50,
+		                    name: '',
+		                    tooltip: {
+		                        show: false
+		                    },
+		                    itemStyle: placeHolderStyle
+		                },
+			            {
 			                    value: 6,
 			                    name: '四级匹配度',
 			                    itemStyle: {
@@ -1062,14 +1075,7 @@
 			                        }
 			                    }
 			                },
-			                {
-			                    value: 50,
-			                    name: '',
-			                    tooltip: {
-			                        show: false
-			                    },
-			                    itemStyle: placeHolderStyle
-			                },
+			                
 			            ]
 			        }
 			    ]
